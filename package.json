@@ -1,0 +1,12 @@
+{
+  "name": "react-decision-maker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kuanyilee85/react-decision-maker.git",
+  "author": "kuanyilee85 <kuanyilee85@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1"
+  }
+}
