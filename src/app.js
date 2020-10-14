@@ -8,8 +8,16 @@ var appObject = {
 var user = {
   name: 'Samuel',
   age: '30',
-  location: 'Maryland',
+  //   location: 'Maryland',
 };
+
+function getLocation(location) {
+  if (location) {
+    return location;
+  } else {
+    return undefined;
+  }
+}
 
 const template = (
   <div>
@@ -18,6 +26,7 @@ const template = (
     <p>{user.name}</p>
     <p>Age: {user.age}</p>
     <p>Location: {user.location}</p>
+    {getLocation(user.location)}
   </div>
 );
 const appRoot = document.getElementById('app');

@@ -9,9 +9,17 @@ var appObject = {
 
 var user = {
   name: 'Samuel',
-  age: '30',
-  location: 'Maryland'
+  age: '30'
+  //   location: 'Maryland',
 };
+
+function getLocation(location) {
+  if (location) {
+    return location;
+  } else {
+    return undefined;
+  }
+}
 
 var template = React.createElement(
   'div',
@@ -42,7 +50,8 @@ var template = React.createElement(
     null,
     'Location: ',
     user.location
-  )
+  ),
+  getLocation(user.location)
 );
 var appRoot = document.getElementById('app');
 
