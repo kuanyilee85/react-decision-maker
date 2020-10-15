@@ -8,13 +8,7 @@ var app = {
   options: []
 };
 
-function getLocation(location) {
-  if (location) {
-    return location;
-  } else {
-    return undefined;
-  }
-}
+var numbers = [11, 33, 55];
 
 var onFormSubmit = function onFormSubmit(e) {
   e.preventDefault();
@@ -65,16 +59,13 @@ var renderApp = function renderApp() {
     React.createElement(
       'ol',
       null,
-      React.createElement(
-        'li',
-        null,
-        'Item one'
-      ),
-      React.createElement(
-        'li',
-        null,
-        'Item two'
-      )
+      app.options.map(function (option) {
+        return React.createElement(
+          'li',
+          { key: option },
+          option
+        );
+      })
     ),
     React.createElement(
       'form',
@@ -90,7 +81,43 @@ var renderApp = function renderApp() {
         { onClick: onRemoveAll },
         'Remove all'
       )
-    )
+    ),
+    React.createElement(
+      'h3',
+      null,
+      'Practice:'
+    ),
+    React.createElement(
+      'p',
+      null,
+      'map a JSX array'
+    ),
+    numbers.map(function (number) {
+      return React.createElement(
+        'p',
+        { key: number },
+        'number: ',
+        number
+      );
+    }),
+    React.createElement(
+      'p',
+      null,
+      'inline JSX array:'
+    ),
+    [React.createElement(
+      'p',
+      { key: '1' },
+      'a'
+    ), React.createElement(
+      'p',
+      { key: '2' },
+      'b'
+    ), React.createElement(
+      'p',
+      { key: '3' },
+      'c'
+    )]
   );
   ReactDOM.render(template, appRoot);
 };
