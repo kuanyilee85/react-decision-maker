@@ -1,3 +1,11 @@
+function getLocation(location) {
+  if (location) {
+    return location;
+  } else {
+    return undefined;
+  }
+}
+
 const user = {
   name: 'Samuel',
   age: '30',
