@@ -2,15 +2,16 @@
 
 console.log('App.js is up and running');
 
-var appObject = {
+var app = {
   title: 'Decision Maker!',
-  subTitle: 'App for practice'
+  subTitle: 'App for practice',
+  options: ['One', 'Two']
 };
 
 var user = {
   name: 'Samuel',
-  age: '30'
-  //   location: 'Maryland',
+  age: '30',
+  location: 'Maryland'
 };
 
 function getLocation(location) {
@@ -27,29 +28,28 @@ var template = React.createElement(
   React.createElement(
     'h1',
     null,
-    appObject.title
+    app.title
   ),
-  React.createElement(
-    'h2',
+  app.subTitle && React.createElement(
+    'p',
     null,
-    appObject.subTitle
+    app.subTitle
   ),
   React.createElement(
     'p',
     null,
-    user.name
+    app.options.length > 0 ? 'Here are your options' : 'No options'
   ),
   React.createElement(
+    'p',
+    null,
+    user.name ? user.name : 'Anonymous'
+  ),
+  user.age && user.age >= 18 && React.createElement(
     'p',
     null,
     'Age: ',
     user.age
-  ),
-  React.createElement(
-    'p',
-    null,
-    'Location: ',
-    user.location
   ),
   getLocation(user.location)
 );
