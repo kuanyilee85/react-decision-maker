@@ -23,6 +23,12 @@ const onRemoveAll = () => {
   app.options = [];
 };
 
+const onMakeDecision = () => {
+  const randomNum = Math.floor(Math.random() * app.options.length);
+  const pickedOption = app.options[randomNum];
+  alert(pickedOption);
+};
+
 const appRoot = document.getElementById('app');
 
 const renderApp = () => {
@@ -44,17 +50,10 @@ const renderApp = () => {
         <input type="text" name="option" />
         <button>Add Option</button>
         <button onClick={onRemoveAll}>Remove all</button>
+        <button disabled={app.options.length === 0} onClick={onMakeDecision}>
+          What should I do?
+        </button>
       </form>
-
-      <h3>Practice:</h3>
-
-      <p>map a JSX array</p>
-      {numbers.map((number) => {
-        return <p key={number}>number: {number}</p>;
-      })}
-
-      <p>inline JSX array:</p>
-      {[<p key="1">a</p>, <p key="2">b</p>, <p key="3">c</p>]}
     </div>
   );
   ReactDOM.render(template, appRoot);

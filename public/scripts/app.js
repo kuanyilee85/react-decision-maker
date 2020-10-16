@@ -25,6 +25,12 @@ var onRemoveAll = function onRemoveAll() {
   app.options = [];
 };
 
+var onMakeDecision = function onMakeDecision() {
+  var randomNum = Math.floor(Math.random() * app.options.length);
+  var pickedOption = app.options[randomNum];
+  alert(pickedOption);
+};
+
 var appRoot = document.getElementById('app');
 
 var renderApp = function renderApp() {
@@ -80,44 +86,13 @@ var renderApp = function renderApp() {
         'button',
         { onClick: onRemoveAll },
         'Remove all'
+      ),
+      React.createElement(
+        'button',
+        { disabled: app.options.length === 0, onClick: onMakeDecision },
+        'What should I do?'
       )
-    ),
-    React.createElement(
-      'h3',
-      null,
-      'Practice:'
-    ),
-    React.createElement(
-      'p',
-      null,
-      'map a JSX array'
-    ),
-    numbers.map(function (number) {
-      return React.createElement(
-        'p',
-        { key: number },
-        'number: ',
-        number
-      );
-    }),
-    React.createElement(
-      'p',
-      null,
-      'inline JSX array:'
-    ),
-    [React.createElement(
-      'p',
-      { key: '1' },
-      'a'
-    ), React.createElement(
-      'p',
-      { key: '2' },
-      'b'
-    ), React.createElement(
-      'p',
-      { key: '3' },
-      'c'
-    )]
+    )
   );
   ReactDOM.render(template, appRoot);
 };
